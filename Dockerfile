@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     doxygen \
     gdb \
     git \
+    graphviz \
     python-is-python3 \
     qtbase5-dev \
     && rm -rf /var/lib/apt/lists/*
@@ -49,7 +50,7 @@ RUN cmake \
     -DvMMVII_BUILD=ON \
     ..
 
-RUN cmake --build . -j$(nproc) --target rebuild 
+RUN cmake --build . -j$(nproc) --target rebuild
 
 # HTML docs
 WORKDIR ${MICMAC_DIR}/MMVII/
@@ -68,6 +69,6 @@ RUN cmake \
     -G Ninja \
     ..
 
-RUN cmake --build . -j$(nproc) -v
+RUN cmake --build . -j$(nproc) --target rebuild
 
 CMD ["sleep", "infinity"]

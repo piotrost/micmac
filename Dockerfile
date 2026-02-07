@@ -35,6 +35,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends sudo \
     && chmod 0440 /etc/sudoers.d/${USERNAME} \
     && rm -rf /var/lib/apt/lists/*
 
+# syntax completion feature for MicMac
+RUN echo '[ -f ${MICMAC_DIR}/MMVII/bash-completion/mmvii-completion ] && . ${MICMAC_DIR}/MMVII/bash-completion/mmvii-completion' \
+    >> /home/${USERNAME}/.bashrc
+
 CMD ["sleep", "infinity"]
 
 FROM dev AS debug

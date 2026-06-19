@@ -523,8 +523,8 @@ void cCCDecode::ComputePhaseTeta()
     }
 
     //  decide if sufficiently homogeneous
-    if (     (aMinDev.ValExtre() > mThresh.mRatioStdDevGlob * StdDev(0,mNbTeta))
-          || (aMinDev.ValExtre() > mThresh.mRatioStdDevAmpl*  mBWAmpl)
+    if (     (aMinDev.ValExtre() > mThresh.mRatioStdDevGlob * StdDev(0,mNbTeta) / 2)
+          || (aMinDev.ValExtre() > mThresh.mRatioStdDevAmpl*  mBWAmpl / 2)
        )
     {
         if (mMarked4Test)

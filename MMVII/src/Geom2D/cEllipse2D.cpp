@@ -909,13 +909,13 @@ bool  cExtract_BW_Ellipse::AnalyseEllipse(cSeedBWTarget & aSeed,const std::strin
      anEE.mEcartAng  = aSomTeta;
      anEE.mVFront    = mVFront;
 
-     if (aSomDPond>0.1)
+     if (aSomDPond>0.2)
      {
          CC_SetMarq(eEEBW_Lab::eAverEl);
      }
      else
      {
-         if (aSomTeta>0.05)
+         if (aSomTeta>0.2)
 	 {
             CC_SetMarq(eEEBW_Lab::eBadTeta);
 	 }
